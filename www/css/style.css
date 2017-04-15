@@ -1,0 +1,166 @@
+.img-small{
+	width: 30%;
+	display:block;
+	margin: 0 auto;
+}
+
+.text-small{
+	font-size: 10px;
+}
+
+.text-big{
+
+}
+
+h5{
+	text-align: center;
+}
+
+#photo {
+    height: 300px;
+    width: 100%;
+}
+
+#gallery {
+    margin: 5px 0;
+    background: #f6f6f6;
+}
+
+.title-color{
+	color: #1558c0;
+}
+
+video{
+	position: absolute;
+	/* left: -25%; */
+	transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	-moz-transform: scaleX(-1);
+	filter: FlipH;
+	width: 100%;
+	z-index: 2;
+}
+
+canvas{
+	position: absolute;
+	z-index: 4;
+	top: 0;
+	transform: scaleX(-1);
+}
+
+#container-video{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+
+#take-photo{
+	font-size: 50px;
+	float: right;
+	z-index: 2000;
+	position: relative;
+}
+
+#box-img-capture{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#mouth{
+
+}
+
+.eyes{
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	border: 2px solid;
+}
+
+#eyer{
+
+}
+
+#eyel{
+
+}
+
+#nose{
+	
+}
+
+#image{
+	position: absolute;
+	z-index: 2000;
+	width: 300px;
+	height: 400px;
+	top: 0;
+	left: 0;
+	transform: scaleX(-1);
+}
+
+.rect {
+    border: 2px solid #a64ceb;
+    left: -1000px;
+    position: absolute;
+    top: -1000px;
+    z-index: 5000;
+ }
+
+ .check{
+ 	color: #43b901;
+ 	font-size: 30px;
+ 	float: right;
+ 	top: 0;
+ 	margin-top: -50px;
+ }
+
+ #list-register a span{
+ 	line-height: 1.5 !important;
+ 	display: block;
+ }
+
+ .text-medium{
+ 	font-size: 14px;
+ }
+
+ .panels{
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+ }
+
+ .sub-panel{
+	background: #2d5869;
+	color: white;
+	font-size: 14px;
+}
+
+ div.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+div.accordion.active:after {
+    content: "\2212";
+}
+
+textarea{
+	height: 90px;
+	resize: none;
+	width: 100%;
+	border: 1px solid black;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+#form-edit span{
+	display: block;
+	line-height: 2;
+}

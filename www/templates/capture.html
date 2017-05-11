@@ -2,13 +2,28 @@
   <ion-content class="padding">
 	<video id="video" autoplay></video>
 	<canvas id="canvas"></canvas>
+	<canvas id="overlay"></canvas>
 	<img id="box-image"></img>
-	<div id="box-img-capture">
+	<!--<div id="box-img-capture">
 		<div id="mouth"></div>
 		<div class="eyes" id="eyer"></div>
 		<div class="eyes" id="eyel"></div>
 		<div id="nose"></div>
-	</div>
-	<div id="take-photo"><i class="ion-camera"></i></button>
+	</div>-->
+	<button class="button button-block button-positive" ng-click="validateTemp();">Capturar código</button>
+	<div id="take-photo"><i class="ion-camera"></i></button></div>
+	<div id="chooseActivities" class="pop-up" ng-show="activitieVisible">
+		<div class="bar bar-header">
+		  <div ng-click="return();" style="z-index:5000;"><i class="icon-arrow-style ion-arrow-left-b"></i></div>
+		  <h1 class="title">Escoge la actividad</h1>
+		</div>
+		<div id="list-Activitie">
+			<div class="list">
+			    <a class="item item-icon-left" id="{{list.actividad}}" ng-repeat = "list in projectsActivities.projects" ng-click = "DataInsertActiv(list.codigo,list.actividad);">
+			      {{list.Nombre}}
+			    </a>
+		    </div>
+	    </div>
+    </div> 	
   </ion-content>
 </ion-view>

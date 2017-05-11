@@ -1,4 +1,4 @@
-var diarios = angular.module('diarios', ['ionic','ui.router'])
+var diarios = angular.module('diarios', ['ionic','ui.router','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

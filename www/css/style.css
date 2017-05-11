@@ -31,7 +31,7 @@ h5{
 }
 
 video{
-	position: absolute;
+	position: relative;
 	/* left: -25%; */
 	transform: scaleX(-1);
 	-webkit-transform: scaleX(-1);
@@ -59,7 +59,10 @@ canvas{
 	font-size: 50px;
 	float: right;
 	z-index: 2000;
-	position: relative;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 10px;
 }
 
 #box-img-capture{
@@ -112,9 +115,10 @@ canvas{
  .check{
  	color: #43b901;
  	font-size: 30px;
- 	float: right;
- 	top: 0;
- 	margin-top: -50px;
+ 	top: 10px;
+ 	position: absolute;
+ 	z-index: 3000;
+ 	right: 12px;
  }
 
  #list-register a span{
@@ -163,4 +167,65 @@ textarea{
 #form-edit span{
 	display: block;
 	line-height: 2;
+}
+
+.input-diarios{
+	border: 1px solid #ddd !important;
+	border-radius: 5px !important;
+	padding-top: 0px !important;
+	padding-left: 4px !important;
+	width: 100% !important;
+}
+.padding-diarios{
+	padding: 0px 10px;
+}
+.padding-diarios button{
+	margin-top: 0px !important;
+	margin-bottom: -5px !important;	
+}
+
+.load{
+	background-image: url(../img/load.gif);
+	background-size: 80px;
+	background-repeat: no-repeat;
+	background-position: center;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 3000;
+}
+.brackground-load{
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+	display: none;
+}
+
+#chooseActivities{
+	
+width: 100%;
+	
+position: absolute;
+	
+background: white;
+	
+top: 0 !important;
+	
+box-shadow: 2px 2px 6px black;
+	
+z-index: 5000;
+	
+border-radius: 10px;
+}
+
+#list-Activitie{
+	
+}
+
+.icon-arrow-style{
+	font-size: 30px;
+	margin-left: 10px;
+	color: #33cd5f;
 }

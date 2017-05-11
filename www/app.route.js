@@ -13,12 +13,15 @@ diarios.config(function($stateProvider, $urlRouterProvider) {
   }).state('tab', {
     url:            '/tab',
     abstract:        true,
-    templateUrl:    'templates/tabs.html'
+    templateUrl:    'templates/tabs.html',
+    controller:     'tabsController'
   }).state('tab.capture', {
+    cache:          false,
     url:            '/capture',
     templateUrl:    'templates/capture.html',
     controller:     'captureController'
   }).state('tab.todayhours',{
+    cache:          false, 
     url :           '/todayhours',
     templateUrl:    'templates/todayhours.html',
     controller:     'todayController'

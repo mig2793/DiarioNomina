@@ -12,7 +12,11 @@
   </head>
   <body ng-app="diarios" class="platform-android platform-cordova platform-webview">
 
-    <ion-nav-view></ion-nav-view>
+    <ion-nav-view cache-view="false">
+    <div class="brackground-load">
+      <div class="load"></div>
+    </div>
+    </ion-nav-view>
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -22,6 +26,8 @@
 
     <!--Libs-->
     <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/ng-cordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/clmtrackr/clmtrackr.min.js"></script>
     <script src="lib/clmtrackr/examples/ext_js/utils.js"></script>
     <script src="lib/clmtrackr/examples/ext_js/dat.gui.min.js"></script>
     <script src="lib/clmtrackr/examples/ext_js/jsfeat-min.js"></script>
@@ -45,14 +51,22 @@
     <!-- your app's js -->
     <script src="app.module.js"></script>
     <script src="app.route.js"></script>
+    <script src="factorys/factorys.js"></script>
+    <script src="factorys/dataSetGet.js"></script>
+    <script src="js/directive.js"></script>
+    <script src="js/globals.js"></script>
 
+    <!--Services-->
+    <script src="Services/todayServices.js"></script>
+    <script src="Services/loginServices.js"></script>
+    <script src="Services/captureServices.js"></script>
+    <script src="Services/editHServices.js"></script>
     <!--Controllers-->
     <script src="Controller/loginController.js"></script>
     <script src="Controller/captureController.js"></script>
     <script src="Controller/todaycontroller.js"></script>
     <script src="Controller/editHUsersController.js"></script>
-
-    <!--Service-->
+    <script src="Controller/tabsController.js"></script>
 
   </body>
 </html>

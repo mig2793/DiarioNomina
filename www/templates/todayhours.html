@@ -1,57 +1,65 @@
-<ion-scroll direction="y" style="height: 500px">
+<ion-scroll scroll-vertical direction="y">
 	<div>
-		<div class="list list-inset">
+		<div class="list list-inset" ng-show="searchVisible">
 		  <label class="item item-input">
 		    <i class="icon ion-search placeholder-icon"></i>
-		    <input type="text" placeholder="Search">
+		    <input type="text" placeholder="Search" ng-model="searchName._nombreEmpleado">
 		  </label>
+		</div>
+		<div ng-show="searchDateVisible">
+			<div class="row">
+			  <label class="col">
+			    <span class="">Fecha inicial</span>
+			    <input class="input-diarios" id="finicial" type="date" value="{{today}}">
+			  </label>
+			  <label class="col">
+			    <span class="">Fecha final</span>
+			    <input class="input-diarios" id="ffinal" type="date" value="{{today}}">
+			  </label>
+			</div>
+			<div class="padding-diarios">
+				<button class="button button-positive button-block" ng-click="GetHorasUsuarioapp();">Buscar</button>
+			</div>
 		</div>
 	</div>
 	<br>
-
 	<div id="list-register" class="list">
-
-	  <div class="item item-divider accordion">Registros completos</div>
+	  <div class="item item-divider accordion">Registros Completos</div>
 	  	<div class="panels">
-		  <div class="sub-panel">&nbsp;&nbsp;&nbsp;&nbsp;Hoy</div>
-		  <a class="item" ui-sref="tab.edithours">
-			<span class="title-color text-medium">Miguel Angel Gonzalez Pinto</span>
-			<span class="text-small ">Lunes 24 de Marzo</span>
-			<span class="text-small">Turno 1: Hora entrada: 8:00&nbsp;&nbsp;&nbsp;&nbsp;Hora salida: 12:00</span>
-			<span class="text-small">Turno 2: Hora entrada: 13:00&nbsp;&nbsp;&nbsp;&nbsp;Hora salida: 17:00</span>
-			<div id="" class="check"><i class="ion-checkmark-circled"></i></div>
-		  </a>
-		  <a class="item" ui-sref="tab.edithours">
-			<span class="title-color text-medium">Miguel Angel Gonzalez Pinto</span>
-			<span class="text-small ">Lunes 24 de Marzo</span>
-			<span class="text-small">Turno 1: Hora entrada: 8:00&nbsp;&nbsp;&nbsp;&nbsp;Hora salida: 12:00</span>
-			<span class="text-small">Turno 2: Hora entrada: 13:00&nbsp;&nbsp;&nbsp;&nbsp;Hora salida: 17:00</span>
-			<div id="" class="check"><i class="ion-checkmark-circled"></i></div>
-		  </a>
-		  <div class="sub-panel">&nbsp;&nbsp;&nbsp;&nbsp;Ayer</div>
-		  <a class="item" ui-sref="tab.edithours">
-			<span class="title-color text-medium">Miguel Angel Gonzalez Pinto</span>
-			<span class="text-small">Lunes 24 de Marzo</span>
-			<span class="text-small">Turno 1: Hora entrada: 8:00&nbsp;&nbsp;&nbsp;&nbsp;Hora salida: 12:00</span>
-			<div id="" class="check"><i class="ion-checkmark-circled"></i></div>
-		  </a>
-		  <div class="sub-panel">&nbsp;&nbsp;&nbsp;&nbsp;27 de Marzo</div>
-		</div>
-	  <div class="item item-divider accordion">Registros no completados</div>
+		  <!--<div class="sub-panel">&nbsp;&nbsp;&nbsp;&nbsp;Hoy</div>-->
+		  <div ng-repeat="data in list.Register | filter:searchName._nombreEmpleado" style="position:relative !important;">
+			  <a class="item" ng-click = "Employment(data);">
+				<span class="title-color text-medium">{{data._nombreEmpleado}}</span>
+				<span class="text-small ">{{data.fechaTexto}}</span>
+				<span ng-repeat="activi in data.actividades" id="{{data._id}}" class="text-small">{{activi.actividad}}: Hora I: {{activi.HoraEntrada}}&nbsp;&nbsp;&nbsp;&nbsp;Hora F:{{activi.HoraSalida}}</span>
+			  </a>		  	
+			  <div class="check" ng-click="approve($event,data);" ng-show="searchVisible"><i class="ion-checkmark-circled"></i></div>
+		  </div>
+	 </div>
+	<div id="list-register" class="list">
+	  <div class="item item-divider accordion">Registros Incompletos</div>
+	  	<div class="panels">
+		  <!--<div class="sub-panel">&nbsp;&nbsp;&nbsp;&nbsp;Hoy</div>-->
+		  <div ng-repeat="data in list.incomplete | filter:searchName._nombreEmpleado" style="position:relative !important;">
+			  <a class="item" ng-click = "Employment(data);">
+				<span class="title-color text-medium">{{data._nombreEmpleado}}</span>
+				<span class="text-small ">{{data.fechaTexto}}</span>
+				<span ng-repeat="activi in data.actividades" id="{{data._id}}" class="text-small">{{activi.actividad}}: Hora I: {{activi.HoraEntrada}}&nbsp;&nbsp;&nbsp;&nbsp;Hora F: {{activi.HoraSalida}}</span>
+			  </a>		  	
+			  <div class="check" ng-click="approve($event,data);" ng-show="searchVisible"><i class="ion-checkmark-circled"></i></div>
+		  </div>
+	  </div>
+	  <div class="item item-divider accordion">Usuarios no Registrados</div>
 	  <div class="panels">
-	  	  <div class="sub-panel">&nbsp;&nbsp;&nbsp;&nbsp;Hoy</div>
-		  <a class="item" ui-sref="tab.edithours">
-			<span class="title-color text-medium">Miguel Angel Gonzalez Pinto</span>
-			<span class="text-small">Lunes 24 de Marzo</span>
-			<span class="text-small">Turno 1: Hora entrada: 8:00&nbsp;&nbsp;&nbsp;&nbsp;Hora salida: 12:00</span>
-			<div id="" class="check"><i class="ion-checkmark-circled"></i></div>
-		  </a>
-		  <a class="item" ui-sref="tab.edithours">
-			<span class="title-color text-medium">Miguel Angel Gonzalez Pinto</span>
-			<span class="text-small">Lunes 24 de Marzo</span>
-			<span class="text-small">Turno 1: Hora entrada: 8:00&nbsp;&nbsp;&nbsp;&nbsp;Hora salida: 12:00</span>
-			<div id="" class="check"><i class="ion-checkmark-circled"></i></div>
-		  </a>
+	  	  <!--<div class="sub-panel">&nbsp;&nbsp;&nbsp;&nbsp;Hoy</div>-->
+		  <div ng-repeat="data in list.NoRegister | filter:searchName._nombreEmpleado" style="position:relative !important;">
+			  <a class="item" ng-click = "Employment(data);">
+				<span class="title-color text-medium">{{data._nombreEmpleado}}</span>
+				<span class="text-small ">{{data.fechaTexto}}</span>
+				<span ng-repeat="activi in data.actividades" id="{{data._id}}" class="text-small">{{activi.actividad}}: Hora I: {{activi.HoraEntrada}}&nbsp;&nbsp;&nbsp;&nbsp;Hora F: {{activi.HoraSalida}}</span>
+			  </a>		  	
+			  <div id="check" class="check" ng-click="approve($event,data);" ng-show="searchVisible"><i class="ion-checkmark-circled"></i></div>
+		  </div>
 	  </div>
 	</div>
  </ion-scroll>
